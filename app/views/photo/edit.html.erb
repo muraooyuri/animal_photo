@@ -2,22 +2,23 @@
     <div class="container">
       <div class="row">
         <div class= "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-          <% if @touken.errors.any? %>
-            <%= @touken.errors.count %>errors prohibited this obj from being saved:
-            <ul>
-             <% @touken.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-             <% end %>
-            </ul>
+          <% if @animal.errors.any? %>
+            <%= @animal.errors.count %>errors prohibited this obj from being saved:
+              <ul>
+               <% @animal.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+               <% end %>
+              </ul>
           <% end %>
+          
       <h2>投稿編集</h2>
-        <%= form_with model: @touken do |f| %>
+        <%= form_with model: @animal do |f| %>
           <div class="form-group">
-            <label for="toukenTitle">題名の編集</label><br>
-            <%= f.text_field :title, autofocus: true, id:"touken_title", class: 'form-control' %><br>
+            <label for="AnimalTitle">題名の編集</label><br>
+            <%= f.text_field :title, autofocus: true, id:"animal_title", class: 'form-control' %><br>
           </div>
           <div class="form-group">
-            <label for="toukenBody">投稿内容の編集</label><br>
+            <label for="AnimalBody">投稿内容の編集</label><br>
             <%= f.text_area :body, class: 'form-control' %><br>
           </div>
           <div class="row">
@@ -26,13 +27,15 @@
             </div>
           </div>
         <% end %>
+        
           <div class="row">
             <div class="col-12 col-md-4 mx-auto">
-              <%= link_to "刀剣詳細" ,touken_path(@touken) %>
+              <%= link_to "ペット詳細" ,animal_path(@animal) %>
                 |
               <%= link_to "戻る" ,toukens_path %>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

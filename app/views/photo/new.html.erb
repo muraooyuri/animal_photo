@@ -1,23 +1,24 @@
 <main>
   <div class="container">
-    <% if @touken.errors.any? %>
-      <%= @touken.errors.count %>件のエラーが発生しました
+    <% if @animal.errors.any? %>
+      <%= @animal.errors.count %>件のエラーが発生しました
         <ul>
-          <% @touken.errors.full_messages.each do |message| %>
+          <% @animal.errors.full_messages.each do |message| %>
           <li><%= message %></li>
           <% end %>
         </ul>
     <% end %>
+    
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-3 px-5 px-sm-0 mx-auto pt-4">
       <h1>写真の投稿</h1>
-        <%= form_with model: @touken, multipart: true do |f|%>
+        <%= form_with model: @animal, multipart: true do |f|%>
           <div class="form-group">
-            <label for="touken_title">題名</label><br>
+            <label for="animal_title">題名</label><br>
             <%= f.text_field :title, class: 'form-control' %>
           </div>
           <div class="form-group">
-            <label for="touken_body">投稿内容</label><br>
+            <label for="animal_body">投稿内容</label><br>
             <%= f.text_area :body, class: 'form-control' %>
           </div>
           <div class="form-group">

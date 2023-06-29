@@ -1,13 +1,28 @@
 class PhotoController < ApplicationController
-  def new
-  end
+  before_action :authenticate_user!
 
-  def index
-  end
-
-  def show
-  end
-
-  def edit
-  end
+    def new
+      @animal = Animal.new
+    end
+  
+    def index
+      @user = current_user
+    end
+  
+    def show
+      @animal = Animal.find(params[:id])
+      @animal_comment = AnimalComment.new
+      @animal_comments = @animal.id
+      @user = @animal.user
+    end
+  
+    def edit
+    end
+  
+  
+    private
+  
+      def touken_params
+        params.require(:animal).permit(:title, :body, :genre_id)
+      end
 end
